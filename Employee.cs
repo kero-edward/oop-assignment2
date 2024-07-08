@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace oop_assignment2
 {
+    public enum Gender
+    {
+        M,
+        F 
+    }
+
     internal class Employee
     {
         private int id;
@@ -15,17 +21,17 @@ namespace oop_assignment2
         private string securityLevel;
         private decimal salary;
         private HiringDate hireDate;
-        private char gender;
+        private Gender gender;
 
 
-        public Employee(int _id, string _name, string _securityLevel, decimal _salary, HiringDate _hireDate, char _gender)
+        public Employee(int _id, string _name, string _securityLevel, decimal _salary, HiringDate _hireDate, Gender _gender)
         {
-            this.id = _id;
-            this.name = _name;
-            this.securityLevel = _securityLevel;
-            this.salary = _salary;
-            this.hireDate = _hireDate;
-            this.gender = _gender;
+            this.ID = _id;
+            this.Name = _name;
+            this.SecurityLevel = _securityLevel;
+            this.Salary = _salary;
+            this.HireDate = _hireDate;
+            this.Gender = _gender;
         }
 
         public int ID
@@ -78,12 +84,12 @@ namespace oop_assignment2
             set { hireDate = value; }
         }
 
-        public char Gender
+        public Gender Gender
         {
             get { return gender; }
             set
             {
-                if (value != 'M' && value != 'F')
+                if (!Enum.IsDefined(typeof(Gender), value))
                     throw new ArgumentException("Gender must be 'M' or 'F'.");
                 gender = value;
             }

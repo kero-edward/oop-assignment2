@@ -14,9 +14,9 @@ namespace oop_assignment2
 
         public HiringDate(int _day, int _month, int _year)
         {
-            this.day = _day;
-            this.month = _month;
-            this.year = _year;
+            this.Day = _day;
+            this.Month = _month;
+            this.Year = _year;
         }
 
         public int Day
