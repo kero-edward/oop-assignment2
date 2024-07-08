@@ -106,7 +106,7 @@ namespace oop_assignment2
 
         public override string ToString()
         {
-            return $"ID: {ID}, Name: {Name}, Security Level: {SecurityLevel}, Salary: {Salary.ToString("C", CultureInfo.CurrentCulture)}, Hire Date: {HireDate}, Gender: {Gender}";
+            return $"ID: {ID}, Name: {Name}, Security Level: {SecurityLevel}, Salary: {String.Format(CultureInfo.CurrentCulture, "{0:C}", Salary)}, Hire Date: {HireDate}, Gender: {Gender}";
         }
     }
 }
