@@ -24,7 +24,7 @@ namespace oop_assignment2
             get { return day; }
             set
             {
-                if (value < 1 && value > 31)
+                if (value < 1 || value > 31)
                     throw new ArgumentException("Day must be between 1 and 31.");
                 day = value;
             }
@@ -35,7 +35,7 @@ namespace oop_assignment2
             get { return month; }
             set
             {
-                if (value < 1 && value > 12)
+                if (value < 1 || value > 12)
                     throw new ArgumentException("Month must be between 1 and 12.");
                 month = value;
             }
@@ -46,7 +46,7 @@ namespace oop_assignment2
             get { return year; }
             set
             {
-                if (value < 1900 && value > DateTime.Now.Year)
+                if (value < 1900 || value > DateTime.Now.Year)
                     throw new ArgumentException("Year must be between 1900 and the current year.");
                 year = value;
             }
