@@ -14,17 +14,26 @@ namespace oop_assignment2
         F 
     }
 
+    public enum SecurityLevel
+    {
+        Guest,
+        Developer,
+        Secretary,
+        DBA
+    }
+
+
     internal class Employee
     {
         private int id;
         private string name;
-        private string securityLevel;
+        private SecurityLevel securityLevel;
         private decimal salary;
         private HiringDate hireDate;
         private Gender gender;
 
 
-        public Employee(int _id, string _name, string _securityLevel, decimal _salary, HiringDate _hireDate, Gender _gender)
+        public Employee(int _id, string _name, SecurityLevel _securityLevel, decimal _salary, HiringDate _hireDate, Gender _gender)
         {
             this.ID = _id;
             this.Name = _name;
@@ -56,13 +65,13 @@ namespace oop_assignment2
             }
         }
 
-        public string SecurityLevel
+        public SecurityLevel SecurityLevel
         {
             get { return securityLevel; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Security Level cannot be empty.");
+                if (!Enum.IsDefined(typeof(SecurityLevel), value))
+                    throw new ArgumentException("Invalid Security Level.");
                 securityLevel = value;
             }
         }
